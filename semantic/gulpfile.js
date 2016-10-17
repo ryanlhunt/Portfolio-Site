@@ -3,45 +3,43 @@
 *******************************/
 
 var
-  gulp         = require('gulp-help')(require('gulp')),
-  concat	   = require('gulp-concat'),
-  less   	   = require('gulp-less'),
-  minifyCss    = require('gulp-minify-css');
-  
+	gulp         = require('gulp-help')(require('gulp')),
+	concat	     = require('gulp-concat'),
+	less   	     = require('gulp-less'),
+	minifyCss    = require('gulp-minify-css');
+    serve 		 = require('gulp-serve');
 
-  // read user config to know what task to load
-  config       = require('./tasks/config/user'),
 
-  // watch changes
-  watch        = require('./tasks/watch'),
+	// read user config to know what task to load
+	config       = require('./tasks/config/user'),
 
-  // build all files
-  build        = require('./tasks/build'),
-  buildJS      = require('./tasks/build/javascript'),
-  buildCSS     = require('./tasks/build/css'),
-  buildAssets  = require('./tasks/build/assets'),
+	// watch changes
+	watch        = require('./tasks/watch'),
 
-  // utility
-  clean        = require('./tasks/clean'),
-  version      = require('./tasks/version'),
+	// build all files
+	build        = require('./tasks/build'),
+	buildJS      = require('./tasks/build/javascript'),
+	buildCSS     = require('./tasks/build/css'),
+	buildAssets  = require('./tasks/build/assets'),
 
-  // docs tasks
-  serveDocs    = require('./tasks/docs/serve'),
-  buildDocs    = require('./tasks/docs/build'),
+	// utility
+	clean        = require('./tasks/clean'),
+	version      = require('./tasks/version'),
 
-  // rtl
-  buildRTL     = require('./tasks/rtl/build'),
-  watchRTL     = require('./tasks/rtl/watch')
-;
+	// docs tasks
+	serveDocs    = require('./tasks/docs/serve'),
+	buildDocs    = require('./tasks/docs/build'),
+
+	// rtl
+	buildRTL     = require('./tasks/rtl/build'),
+	watchRTL     = require('./tasks/rtl/watch');
 
 
 /*******************************
              Tasks
 *******************************/
 
-gulp.task('default', false, [
-  'watch'
-]);
+gulp.task('default', ['connect', 'watch']);
 
 gulp.task('watch', 'Watch for site/theme changes', watch);
 
@@ -76,16 +74,19 @@ gulp.task('minify-css', function() {
 gulp.task('serve-docs', 'Serve file changes to SUI Docs', serveDocs);
 gulp.task('build-docs', 'Build all files and add to SUI Docs', buildDocs);
 
-/*  Gulp Webserver */
+/*--------------------------
+		Gulp Webserver 
+--------------------------*/
 
-var gulp = require('gulp'),
-  connect = require('gulp-connect');
- 
-gulp.task('connect', function() {
-  connect.server();
-});
- 
-gulp.task('default', ['connect']);
+gulp.task('serve', serve('dist'));
+gulp.task('serve-build', serve(['public', 'build']));
+gulp.task('serve-prod', serve({
+  root: ['dist', 'build'],
+  port: 80,
+  middleware: function(req, res) {
+    // custom optional middleware 
+  }
+}));
  
 /*--------------
       RTL
