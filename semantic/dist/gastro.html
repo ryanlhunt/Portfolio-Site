@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Standard Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+	<!-- Site Properities -->
+	<title>Ryan L. Hunt - Gastronaut</title>
+	<!-- build:css styles/main.css -->
+	<link rel="stylesheet" type="text/css" href="components/reset.css">
+	<link rel="stylesheet" type="text/css" href="components/site.css">
+
+	<link rel="stylesheet" type="text/css" href="components/container.css">
+	<link rel="stylesheet" type="text/css" href="components/grid.css">
+	<link rel="stylesheet" type="text/css" href="components/header.css">
+	<link rel="stylesheet" type="text/css" href="components/image.css">
+	<link rel="stylesheet" type="text/css" href="components/menu.css">
+
+	<link rel="stylesheet" type="text/css" href="components/divider.css">
+	<link rel="stylesheet" type="text/css" href="components/list.css">
+	<link rel="stylesheet" type="text/css" href="components/segment.css">
+	<link rel="stylesheet" type="text/css" href="components/dropdown.css">
+	<link rel="stylesheet" type="text/css" href="components/icon.css">
+	<link rel="stylesheet" type="text/css" href="components/modal.css">
+
+	
+	
+	
+	<link rel="stylesheet" type="text/css" href="semantic.min.css">
+	<script src="semantic.min.js"></script> 
+	<!-- endbuild -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="components/visibility.js"></script>
+	<script src="components/sidebar.js"></script>
+	<script src="components/transition.js"></script>
+	
+	<!--ReportCard -->
+  <style type="text/css">
+   .description {
+	  font-size: .90em;
+    }
+	  #card-header {
+		font-size: 1.15 em;
+	  }
+
+    .hidden.menu {
+      display: none;
+    }
+
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 1em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+      padding: 3.5em 0em;
+    }
+    .ui.vertical.stripe h3 {
+      font-size: 3em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 2em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
+
+    .quote.stripe.segment {
+      padding: 0em;
+    }
+    .quote.stripe.segment .grid .column {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .footer.segment {
+      padding: 5em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+	#work:before, #writing:before, #portfolio:before {
+		display: block;
+		position: relative;
+		content: " "; 
+		top: -100px;
+		height: 100px;
+		visibility: hidden;
+		
+}
+
+
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="components/visibility.js"></script>
+  <script src="components/sidebar.js"></script>
+  <script src="components/transition.js"></script>
+  <script>
+	  <!-- endbuild -->
+  $(document)
+    .ready(function() {
+
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+	  $(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+  </script>
+
+</head>
+<body>
+<!-- Menu -->
+  <div class="ui large top fixed hidden menu">
+	  <div class="ui container">
+		<a class="item" href="index.html">Home</a>
+		<a class="item" href="writing.html">Writing</a>
+		<a class="item" href="about.html">About</a>
+
+        <div class="right item">
+          <a class="ui primary button" href="mailto:ryan@ryanlhunt.com">Contact</a>
+        </div>
+      </div>
+    </div>
+
+<!-- Page Contents -->
+<div class="pusher">
+	  <div class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+		<a class="item" href="index.html">Home</a>
+		<a class="item" href="writing.html">Writing</a>
+		<a class="item" href="about.html">About</a>
+		
+        <div class="right item">
+          <a class="ui inverted button" href="mailto:ryan@ryanlhunt.com">Contact</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="ui vertical stripe segment">
+  <div class="ui main text container">
+    <h1 class="ui header">Gastronaut</h1>
+<h2>Problem Statement</h2>
+<p>Products that rely on documents and records to discovery detail about someone’s family history miss out on capturing potential users because of the history of global record keeping and governmental bureaucracy. What’s needed is a way to discovery the daily lives that happen between the events that are recorded by governments. </p>
+<h2>Market Definition</h2>
+<p>The current market consists of products that are overwhelmingly owned by the Mormon Church and operate for the benefit of their organization. LDS members have free access to a number of sites that are sponsored by the church. </p>
+<p>Rather than focusing on pedigree and lineage, Gastronaut focuses on culture. In essence, it focuses on the collective people and not the individuals. This shift in focus allows for more people to benefit from the service and learn more about where they’re from through the food of their community. </p>
+<h2>Key primary research findings</h2>
+<p>The pivotal piece of primary evidence was uncovered during the prototype testing at Bentley. Our participant described the difficulties he had when trying to learn about his family; He is a Chinese immigrant whose family’s records were destroyed during the Chinese Cultural Revolution. His challenges illustrated the that services like Ancestry have and the pain and frustration that results from running into dead ends.</p>
+<h2>Key secondary research findings</h2>
+<p>The key secondary research finding were the numerous genetic traits that are associates with taste, smell, and food. Considering that genetic preferences for certain flavors or types of food can be correlated with ethnicity, geography, and potentially migration patterns. </p>
+<h2>Statement of Innovation</h2>
+<p>This product is unique in the market and aims to expand the toolset that can be used to understand people, culture, community, and humanity. By embracing food as the primary connector, we are able get hooks into factors that transcend humanity into a more fundamental factor of life. Food is best shared and connections are made at the dinner table. Any attempts to foster those kinds of connections from table to table will surely have impacts on how people connect with one another. </p>
+<h2>Overview of Design Implementation</h2>
+<p>With the design of this product, the focus should be put on recalling, capturing, and documenting the moments that occur when a person prepares food for a loved one. This lasting, symbolic instance is how memories are made, communities are strengthened, and achievements are celebrated. As users move through the product, the focus shifts from the individual, to the immediate family, then to the global community. Users first answer questions about their own food preferences and are offered the option to take a DNA test to validate their preferences, and potentially discover other traits about taste, flavor, and ethnicity. Next they shift to cataloging favorite meals and family recipes, remembering the food their parents and grandparents used to make. Lastly they are shown the roots of those menus, where certain preparations originated from, information about the ingredients that might have been used in that region, and what other dishes from around the world also carry the traits and ingredients that the user prefers. If the user’s ancestor were from a group whose sustenance crop was wheat, they are shown similar recipes from other cultures with the same sustenance crop -or cultures with similar ingredients, or places that were colonized by the same empires.</p>
+<p>Gastronaut should feel like you’re being invited to share your family meals with other people from around the world. By fostering connections, connections can be made that were not possible before.</p>
+
+
+	<br>
+	
+</div>
+		
+	  <div class="ui main container">
+		<h2>Prototype</h2>
+		<div class="ui grid">
+		<div class="nine wide column">
+		<div class="ui header">Requirements</div>
+		<p>In getting to understand what needed to be done with the product, I developed a list of requirements:</p>
+			<ul>
+			<li>Personal Food Preferences</li>
+			<li>Cataloging Family Recipes</li>
+			<li>DNA testing for taste/flavor/other food related genes and ethnicity</li>
+			</ul>
+		<p>Possible add on features for development:</p>
+			<ul>
+			<li>Genetic diet plan</li>
+			<li>Family history + historic recipes</li>
+			<li>Explore other cultures through their cuisine</li>
+			<li>Geographic menus</li>
+			<li>Find other dishes that match your preferences</li>
+			</ul>
+		</div>
+		<div class="seven wide column">
+		<img class="ui image" src="themes/basic/assets/images/gastro/Requirements.jpg"></div>
+		
+		<div class="nine wide column">
+		<div class="ui header">Landing Page</div>
+			<p>The landing page should feature a headline that captures the user’s attention.</p>
+			<p>“Find Your History Through Food” or “You Are What You Eat” coupled with a quick product description and a call to action button are enough to draw the user in.</p>
+			<p>Below the fold should be more explanations about what you can do on the site -potentially with images of food, ingredients, or other signifiers about what the site focuses on.
+			</p>	
+		</div>
+		<div class="seven wide column">
+			<img class="ui image" src="themes/basic/assets/images/gastro/Landing.jpg"></div>
+		<div class="nine wide column">
+		<div class="ui header">Food Questions</div>
+			<p>An important factor in determining what someone’s food and flavor preferences are is going to be asking a lot of questions. A series of questions reminiscent to the way that OKCupid uses surveys to find people matches would work well here.</p>
+			<p>The user’s answers will be used as a way to filter through dishes by ingredients, styles, and regions to determine taste and flavor preferences. 
+			</p>
+		</div>
+		<div class="seven wide column">
+			<img class="ui image" src="themes/basic/assets/images/gastro/FoodQuestions.jpg"></div>
+			
+		<div class="nine wide column">
+			<div class="ui header">Discovery</div>
+			<p>Throughout the site, there will be a small modal popup that allows for people to browse recipes from different parts of their ethnic identity as well as recipes that match their flavor preferences outside of the ones that align with their identity. This feature is meant to allow for people to build a mutual understanding with other ethnicities through the love of food.</p></div>
+		<div class="seven wide column">
+			<img class="ui image" src="themes/basic/assets/images/gastro/Discovery.jpg"></div>
+			
+		<div class="nine wide column">
+			<div class="ui header">DNA Test Results</div>	
+			<p>This is the screen that the user’s DNA test results will be presented in. It will show users food related gene markers as well as flavor and taste preferences.</p>
+			<p>This information will be integrated into the user’s recorded flavor preferences to allow for an expansion of analysis on their history. </p>
+			<p>Users will also be able to search recipes based on their results and see where their DNA says they are from.</p></div>
+		<div class="seven wide column">
+			<img class="ui image" src="themes/basic/assets/images/gastro/DNA_Result.jpg"></div>
+			
+		<div class="nine wide column">
+			<div class="ui header">Profile</div>
+			<p>The profile will contain the user’s name, email address, social media information, and any connections that they make through the site.</p>
+			<p>It will also contain their responses to the flavor questions, their DNA results, saved family recipes, and the details about where their flavor preferences have connections to.
+			</p>
+			</div>
+		<div class="seven wide column">
+			<img class="ui image" src="themes/basic/assets/images/gastro/Profile.jpg"></div>
+		
+		<div class="nine wide column">
+		<div class="ui header">Recipe</div>
+			<p>The recipe page will give basic information about recipe, it’s country of origin, where in the world it’s served, and links to variations on the recipe.</p> 
+			<p>Ingredients and preparation instructions will be listed and images of the dish and videos on how to prepare it will follow.</p>
+			<p>Where applicable, a map showing where the dish originated will be present.</p>
+			<p>This section could link to restaurants where the dish is served or to services that would help users prepare the dish on their own by either ordering ingredients or and special equipment needed to prepare the dish.
+			</p>
+			</div>
+		<div class="seven wide column">
+		<img class="ui image" src="themes/basic/assets/images/gastro/Recipe.jpg">
+		</div>
+		</div>
+		</div>
+	</div>
+	
+
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted equal height centered stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">Social</h4>
+          <div class="ui inverted link list">
+            <a href="https://twitter.com/r_hunt" class="item">Twitter</a>
+            <a href="https://www.linkedin.com/in/ryanlhunt" class="item">LinkedIn</a>
+            <a href="https://medium.com/@ryanlhunt" class="item">Medium</a>
+          </div>
+        </div>
+		  <div class="four wide column"></div>
+       
+       
+        <div class="four wide column">
+          <h4 class="ui inverted header">Oh, Hi!</h4>
+          <p>I live with my wife, son, and dog in Berkeley, California. My favorite songwriter is Tom Waits, and I love tacos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
