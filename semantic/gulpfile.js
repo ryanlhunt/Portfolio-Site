@@ -4,10 +4,6 @@
 
 var
   gulp         = require('gulp-help')(require('gulp')),
-  concat	   = require('gulp-concat'),
-  less   	   = require('gulp-less'),
-  minifyCss    = require('gulp-minify-css');
-  
 
   // read user config to know what task to load
   config       = require('./tasks/config/user'),
@@ -52,17 +48,6 @@ gulp.task('build-assets', 'Copies all assets from source', buildAssets);
 
 gulp.task('clean', 'Clean dist folder', clean);
 gulp.task('version', 'Displays current version of Semantic', version);
-gulp.task('compileLess', function() {
-	gulp.src('src/semantic.less')
-	.pipe(less())
-	.pipe(gulp.dest('dist'));
-});
-gulp.task('minify-css', function() {
-  return gulp.src('dist/semantic.css')
-    .pipe(minifyCss({compatibility: 'ie8'}))
-    .pipe(gulp.dest('dist'));
-});
-
 
 /*--------------
       Docs
@@ -76,24 +61,12 @@ gulp.task('minify-css', function() {
 gulp.task('serve-docs', 'Serve file changes to SUI Docs', serveDocs);
 gulp.task('build-docs', 'Build all files and add to SUI Docs', buildDocs);
 
-/*  Gulp Webserver */
 
-var gulp = require('gulp'),
-  connect = require('gulp-connect');
- 
-gulp.task('connect', function() {
-  connect.server();
-});
- 
-gulp.task('default', ['connect']);
- 
 /*--------------
       RTL
 ---------------*/
 
 if(config.rtl) {
-  gulp.task('watch-rtl', 'Build all files as RTL', watchRTL);
-  gulp.task('build-rtl', 'Watch files as RTL ', buildRTL);
+  gulp.task('watch-rtl', 'Watch files as RTL', watchRTL);
+  gulp.task('build-rtl', 'Build all files as RTL', buildRTL);
 }
-
-
